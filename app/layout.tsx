@@ -18,8 +18,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-      <Navigation />
+      <body className={`${inter.className} flex min-h-screen flex-col items-center justify-between `}>
+        <Navigation />
         {children}
       </body>
     </html>

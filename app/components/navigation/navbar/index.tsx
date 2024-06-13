@@ -1,55 +1,79 @@
 import React from "react";
 import Link from "next/link";
-import Logo from "./Logo";
-import Button from "./Button";
+import { usePathname } from "next/navigation";
 
-const Navbar = ({
-    toggle,
-  }: {
-    toggle: () => void;
-  }): JSX.Element => {
+import ToggleTheme from "./ThemeToggle";
+
+const Navbar = ({ toggle }: { toggle: () => void }): JSX.Element => {
+  const pathname = usePathname();
+
   return (
     <>
-      <div className="w-full h-20 bg-emerald-800 sticky top-0">
+      <div
+        className={`w-full h-20 dark:bg-gradient-to-r from-blue-900 via-purple-900 to-black shadow-lg sticky top-0`}
+      >
         <div className="container mx-auto px-4 h-full">
           <div className="flex justify-between items-center h-full">
-            <Logo />
+            <div className="text-white text-2xl font-bold rounded-lg shadow p-2">
+              <Link href="/">Digital Twin</Link>
+            </div>
             <ul className="hidden md:flex gap-x-6 text-white">
-              <li>
+              <li
+                className={`${
+                  pathname === "/about"
+                    ? "text-yellow-300"
+                    : "hover:text-gray-400 transition-colors duration-300"
+                }`}
+              >
                 <Link href="/about">
                   <p>About Us</p>
                 </Link>
               </li>
-              <li>
+              <li
+                className={`${
+                  pathname === "/services"
+                    ? "text-yellow-300"
+                    : "hover:text-gray-400 transition-colors duration-300"
+                }`}
+              >
                 <Link href="/services">
                   <p>Services</p>
                 </Link>
               </li>
-              <li>
+              <li
+                className={`${
+                  pathname === "/contacts"
+                    ? "text-yellow-300"
+                    : "hover:text-gray-400 transition-colors duration-300"
+                }`}
+              >
                 <Link href="/contacts">
                   <p>Contacts</p>
                 </Link>
               </li>
             </ul>
-            <Button />
-            <button
-              type="button"
-              className="inline-flex items-center md:hidden"
-              onClick={toggle}
-            >
-              {/* Menu icon */}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="40"
-                height="40"
-                viewBox="0 0 24 24"
+            <div className="flex items-center">
+              <ToggleTheme />
+              <button
+                type="button"
+                className="inline-flex items-center md:hidden relative group"
+                onClick={toggle}
               >
-                <path
-                  fill="#fff"
-                  d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"
-                />
-              </svg>
-            </button>
+                {/* Menu icon */}
+                <div className="relative flex overflow-hidden items-center justify-center rounded-full w-[50px] h-[50px] transform transition-all bg-slate-700 ring-0 ring-gray-300 hover:ring-8 group-focus:ring-4 ring-opacity-30 duration-200 shadow-md">
+                  <div className="flex flex-col justify-between w-[20px] h-[20px] transform transition-all duration-300 origin-center overflow-hidden">
+                    <div className="bg-white h-[2px] w-7 transform transition-all duration-300 origin-left group-focus:translate-x-10"></div>
+                    <div className="bg-white h-[2px] w-7 rounded transform transition-all duration-300 group-focus:translate-x-10 delay-75"></div>
+                    <div className="bg-white h-[2px] w-7 transform transition-all duration-300 origin-left group-focus:translate-x-10 delay-150"></div>
+
+                    <div className="absolute items-center justify-between transform transition-all duration-500 top-2.5 -translate-x-10 group-focus:translate-x-0 flex w-0 group-focus:w-12">
+                      <div className="absolute bg-white h-[2px] w-5 transform transition-all duration-500 rotate-0 delay-300 group-focus:rotate-45"></div>
+                      <div className="absolute bg-white h-[2px] w-5 transform transition-all duration-500 -rotate-0 delay-300 group-focus:-rotate-45"></div>
+                    </div>
+                  </div>
+                </div>
+              </button>
+            </div>
           </div>
         </div>
       </div>
