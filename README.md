@@ -38,3 +38,11 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## External Packages Installed
 - react-icons
+
+## References
+- [Next.js Documentation](https://nextjs.org/docs)
+- [React Icons](https://react-icons.github.io/react-icons/)
+- [Navbar](https://medium.com/@a.pirus/how-to-create-a-responsive-navigation-bar-in-next-js-13-e5540789a017)
+- [Active Links in navbar](https://medium.com/@theambi/how-to-easily-style-active-link-in-nextjs-ebd01a484f23)
+- [Deployment](https://nextjs.org/learn-pages-router/basics/deploying-nextjs-app)
+- 

@@ -18,9 +18,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} flex min-h-screen flex-col items-center justify-between `}>
+      <head>
+      </head>
+      <body className={`${inter.className} flex min-h-screen flex-col items-center `}>
         <Navigation />
         {children}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
       </body>
     </html>
   );
