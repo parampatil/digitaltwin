@@ -16,10 +16,10 @@ const Navbar = ({ toggle }: { toggle: () => void }): JSX.Element => {
       >
         <div className="container mx-auto px-4 h-full">
           <div className="flex justify-between items-center h-full">
-            <div className="text-white text-2xl font-bold rounded-lg shadow p-2">
+            <div className="text-black dark:text-white text-2xl font-bold rounded-lg shadow p-2">
               <Link href="/">Digital Twin</Link>
             </div>
-            <ul className="hidden md:flex gap-x-6 text-white">
+            <ul className="hidden md:flex gap-x-6 text-black dark:text-white">
               <li
                 className={`${
                   pathname === "/"

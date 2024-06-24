@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Script from 'next/script'
+import Script from "next/script";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -19,9 +19,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-      </head>
-      <body className={`${inter.className} flex min-h-screen flex-col items-center `}>
+      <head></head>
+      <body
+        className={`${inter.className} flex min-h-screen flex-col items-center`}
+      >
         <Navigation />
         {children}
         <Script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></Script>

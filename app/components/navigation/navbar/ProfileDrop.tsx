@@ -4,11 +4,11 @@ import { CgProfile } from "react-icons/cg";
 
 const ProfileDrop = () => {
   return (
-    <div className="ml-3 border rounded-full p-2 hover:border-yellow-300">
+    <div className="ml-3 border rounded-full p-2 hover:border-yellow-300 hover:text-blue-600 dark:hover:text-blue-500">
       <button
         id="dropdownAvatarNameButton"
         data-dropdown-toggle="dropdownAvatarName"
-        className="flex items-center text-sm pe-1 font-medium text-white rounded-full hover:text-blue-600 dark:hover:text-blue-500 md:me-0  0 dark:focus:ring-gray-700 dark:text-white"
+        className="flex items-center text-sm pe-1 font-medium text-blac rounded-full md:me-0  0 dark:focus:ring-gray-700 dark:text-white"
         type="button"
       >
         <span className="sr-only">Open user menu</span>
