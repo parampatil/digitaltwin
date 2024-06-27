@@ -15,9 +15,9 @@ const ThemeToggle = () => {
       className="focus:outline-none transition-colors duration-300"
     >
       {isDarkMode ? (
-        <FaMoon className="text-blue-400 transition-transform duration-300 transform rotate-0 hover:rotate-12" />
+        <FaMoon className="text-2xl text-blue-400 transition-transform duration-300 transform rotate-0 hover:rotate-12" />
       ) : (
-        <FaSun className="text-yellow-600 transition-transform duration-300 transform rotate-0 hover:rotate-12" />
+        <FaSun className="text-2xl text-yellow-600 transition-transform duration-300 transform rotate-0 hover:rotate-12" />
       )}
     </button>
   );

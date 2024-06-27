@@ -6,24 +6,33 @@ import ToggleTheme from "./ThemeToggle";
 import SocialLinks from "./SocialLinks";
 import ProfileDrop from "./ProfileDrop";
 
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+
 const Navbar = ({ toggle }: { toggle: () => void }): JSX.Element => {
   const pathname = usePathname();
 
   return (
-    <>
+    <nav className="w-full sticky top-0 bg-white z-50">
       <div
-        className={`w-full h-20 dark:bg-gradient-to-r from-blue-900 via-purple-900 to-black shadow-lg sticky top-0`}
+        className={`w-full h-20 dark:bg-gradient-to-r from-blue-900 via-purple-900 to-black shadow-lg sticky top-0 dark:shadow-indigo-500/50`}
       >
         <div className="container mx-auto px-4 h-full">
           <div className="flex justify-between items-center h-full">
-            <div className="text-black dark:text-white text-2xl font-bold rounded-lg shadow p-2">
-              <Link href="/">Digital Twin</Link>
+            <div className="text-black dark:text-white text-2xl font-bold p-2">
+              <Link href="/">Building A Mind</Link>
             </div>
             <ul className="hidden md:flex gap-x-6 text-black dark:text-white">
               <li
                 className={`${
                   pathname === "/"
-                    ? "text-yellow-300"
+                    ? "text-amber-500"
                     : "hover:text-gray-400 transition-colors duration-300"
                 }`}
               >
@@ -34,7 +43,7 @@ const Navbar = ({ toggle }: { toggle: () => void }): JSX.Element => {
               <li
                 className={`${
                   pathname === "/about"
-                    ? "text-yellow-300"
+                    ? "text-amber-500"
                     : "hover:text-gray-400 transition-colors duration-300"
                 }`}
               >
@@ -45,7 +54,7 @@ const Navbar = ({ toggle }: { toggle: () => void }): JSX.Element => {
               <li
                 className={`${
                   pathname === "/projects"
-                    ? "text-yellow-300"
+                    ? "text-amber-500"
                     : "hover:text-gray-400 transition-colors duration-300"
                 }`}
               >
@@ -56,7 +65,7 @@ const Navbar = ({ toggle }: { toggle: () => void }): JSX.Element => {
               <li
                 className={`${
                   pathname === "/contacts"
-                    ? "text-yellow-300"
+                    ? "text-amber-500"
                     : "hover:text-gray-400 transition-colors duration-300"
                 }`}
               >
@@ -67,7 +76,7 @@ const Navbar = ({ toggle }: { toggle: () => void }): JSX.Element => {
               <li
                 className={`${
                   pathname === "/login"
-                    ? "text-yellow-300"
+                    ? "text-amber-500"
                     : "hover:text-gray-400 transition-colors duration-300"
                 }`}
               >
@@ -76,36 +85,105 @@ const Navbar = ({ toggle }: { toggle: () => void }): JSX.Element => {
                 </Link>
               </li>
             </ul>
-            <div className="flex items-center">
-              <SocialLinks />
-              <ToggleTheme />
-              <ProfileDrop />
-              <button
-                type="button"
-                className="mx-2 inline-flex items-center md:hidden relative group"
-                onClick={toggle}
-              >
-                {/* Menu icon */}
-                <div data-modal-target="default-modal" data-modal-toggle="default-modal" className="relative flex overflow-hidden items-center justify-center rounded-full w-[50px] h-[50px] transform transition-all bg-slate-700 ring-0 ring-gray-300 hover:ring-8 group-focus:ring-4 ring-opacity-30 duration-200 shadow-md">
-                  <div className="flex flex-col justify-between w-[20px] h-[20px] transform transition-all duration-300 origin-center overflow-hidden">
-                    <div className="bg-white h-[2px] w-7 transform transition-all duration-300 origin-left group-focus:translate-x-10"></div>
-                    <div className="bg-white h-[2px] w-7 rounded transform transition-all duration-300 group-focus:translate-x-10 delay-75"></div>
-                    <div className="bg-white h-[2px] w-7 transform transition-all duration-300 origin-left group-focus:translate-x-10 delay-150"></div>
+            <div className="w-1/4 flex justify-end">
+              <div className="hidden md:flex w-full justify-around items-center">
+                <SocialLinks />
+                <ToggleTheme />
+                <ProfileDrop />
+              </div>
 
-                    <div className="absolute items-center justify-between transform transition-all duration-500 top-2.5 -translate-x-10 group-focus:translate-x-0 flex w-0 group-focus:w-12">
-                      <div className="absolute bg-white h-[2px] w-5 transform transition-all duration-500 rotate-0 delay-300 group-focus:rotate-45"></div>
-                      <div className="absolute bg-white h-[2px] w-5 transform transition-all duration-500 -rotate-0 delay-300 group-focus:-rotate-45"></div>
-                    </div>
+              <Sheet>
+                <SheetTrigger>
+                  <svg
+                    className="md:hidden mx-2 my-auto hover:scale-90 transition-all duration-300 dark:invert"
+                    viewBox="0 0 100 80"
+                    width="40"
+                    height="40"
+                  >
+                    <rect width="100" height="20" rx="10"></rect>
+                    <rect y="30" width="100" height="20" rx="10"></rect>
+                    <rect y="60" width="100" height="20" rx="10"></rect>
+                  </svg>
+                </SheetTrigger>
+                <SheetContent className="w-9/12 flex flex-col justify-between" side="left">
+                  <SheetHeader>
+                    <SheetTitle>
+                      <div className="flex justify-between pe-5">
+                        <h1 className="text-center my-auto">Building A Mind</h1>
+                        <ProfileDrop />
+                      </div>
+                    </SheetTitle>
+                    <SheetDescription>
+                      <ul className="text-lg">
+                        <li
+                          className={`${
+                            pathname === "/"
+                              ? "text-amber-500"
+                              : "hover:text-slate-700 transition-colors duration-300"
+                          }`}
+                        >
+                          <Link href="/">
+                            <p>Home</p>
+                          </Link>
+                        </li>
+                        <li
+                          className={`${
+                            pathname === "/about"
+                              ? "text-amber-500"
+                              : "hover:text-slate-700 transition-colors duration-300"
+                          }`}
+                        >
+                          <Link href="/about">
+                            <p>About Us</p>
+                          </Link>
+                        </li>
+                        <li
+                          className={`${
+                            pathname === "/projects"
+                              ? "text-amber-500"
+                              : "hover:text-slate-700 transition-colors duration-300"
+                          }`}
+                        >
+                          <Link href="/projects">
+                            <p>Projects</p>
+                          </Link>
+                        </li>
+                        <li
+                          className={`${
+                            pathname === "/contacts"
+                              ? "text-amber-500"
+                              : "hover:text-slate-700 transition-colors duration-300"
+                          }`}
+                        >
+                          <Link href="/contacts">
+                            <p>Contacts</p>
+                          </Link>
+                        </li>
+                        <li
+                          className={`${
+                            pathname === "/login"
+                              ? "text-amber-500"
+                              : "hover:text-slate-700 transition-colors duration-300"
+                          }`}
+                        >
+                          <Link href="/login">
+                            <p>Login</p>
+                          </Link>
+                        </li>
+                      </ul>
+                    </SheetDescription>
+                  </SheetHeader>
+                  <div className="flex justify-between bottom-0">
+                    <ToggleTheme />
+                    <SocialLinks />
                   </div>
-                </div>
-              </button>
-
-              
+                </SheetContent>
+              </Sheet>
             </div>
           </div>
         </div>
       </div>
-    </>
+    </nav>
   );
 };
 

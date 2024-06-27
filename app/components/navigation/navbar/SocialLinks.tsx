@@ -6,7 +6,7 @@ import { ImLab } from "react-icons/im";
 
 const SocialLinks = () => {
   return (
-    <div className="flex mx-2">
+    <div className="flex">
       <a
         href="#"
         className="mx-2 w-10 h-10 flex relative overflow-hidden items-center justify-center rounded-full bg-white shadow-md bg-opacity-0 shadow-gray-200 group transition-all duration-500"
